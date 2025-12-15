@@ -1,6 +1,10 @@
 import streamlit as st
 from services.library_services import Library
 import os
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+IMAGE_PATH = os.path.join(BASE_DIR, "assets", "logo.jpg")
+
 st.set_page_config(page_title="Digital Library System",
                    layout="wide")
 
@@ -11,9 +15,6 @@ if "library" not in st.session_state:
 library = st.session_state.library
 
 
-
-
-IMAGE_PATH = os.path.join("assets", "logo.jpg")
 col1, col2, col3 = st.columns([1, 2, 1])
 with col2:
     st.image(IMAGE_PATH, width=450)
@@ -160,3 +161,4 @@ elif action == "View All Books":
     view_all_books()
 elif action == "Exit":
     st.success("👋 Thank you for using Digital Library System")
+
